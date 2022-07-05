@@ -94,6 +94,10 @@ for (let game of warriorsGames) {
   const { team: hTeam, points: hPoints } = homeTeam;
   const { team: aTeam, points: aPoints } = awayTeam;
   const teamNames = `${aTeam} @ ${hTeam} `;
+<<<<<<< HEAD
+=======
+  //extracting scores infos from warriosGames to add them in our <li>s
+>>>>>>> b1f0974d8daa328e0b7ee9d45be182a4eb606594
 
   //extracting scores infos from warriosGames to add them in our <li>s
   let scoreLine;
