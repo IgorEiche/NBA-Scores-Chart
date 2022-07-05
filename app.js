@@ -85,22 +85,30 @@ const warriorsGames = [
   },
 ];
 
-// creating an <ul> with <li>s related to the team games extracted from warriorsGames
+// creating an <ul> parent which will contain the <li>s related to the team games extracted from warriorsGames
 const ulParent = document.createElement("ul");
+
 for (let game of warriorsGames) {
   const { homeTeam, awayTeam } = game;
   const gameLi = document.createElement("li");
   const { team: hTeam, points: hPoints } = homeTeam;
   const { team: aTeam, points: aPoints } = awayTeam;
-  const teamNames = `${aTeam.team} @ ${hTeam.team} `;
-  //extracting scores infos from warriosGames to add them in our <li>s
+  const teamNames = `${aTeam} @ ${hTeam} `;
 
+  //extracting scores infos from warriosGames to add them in our <li>s
   let scoreLine;
   if (aPoints > hPoints) {
     scoreLine = `<b>${aPoints}</b>-${hPoints}`;
   } else {
     scoreLine = `${aPoints}-<b>${hPoints}</b>`;
   }
+
+  //a green background-color will be applied whenever warriors wins a game
+  //we will isolate the objects related to warriors, searching for 'Golden State' team
+  //after that, we check whether isWinner in that object was set to true or false. If true, the .winner class proprieties apply.
+  const warriors = hTeam === "Golden State" ? homeTeam : awayTeam;
+  gameLi.classList.add(warriors.isWinner ? "win" : "loss");
+  console.log(warriors);
   gameLi.innerHTML = `${teamNames} ${scoreLine}`;
   ulParent.appendChild(gameLi);
 }
