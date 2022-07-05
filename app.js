@@ -92,7 +92,7 @@ for (let game of warriorsGames) {
   const gameLi = document.createElement("li");
   const { team: hTeam, points: hPoints } = homeTeam;
   const { team: aTeam, points: aPoints } = awayTeam;
-  const teamNames = `${aTeam.team} @ ${hTeam.team} `;
+  const teamNames = `${aTeam} @ ${hTeam} `;
   //extracting scores infos from warriosGames to add them in our <li>s
 
   let scoreLine;
