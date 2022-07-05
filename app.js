@@ -90,7 +90,10 @@ const ulParent = document.createElement("ul");
 for (let game of warriorsGames) {
   const { homeTeam, awayTeam } = game;
   const gameLi = document.createElement("li");
-  gameLi.innerText = `${awayTeam.team} @ ${homeTeam.team} `;
+  const teamNames = `${awayTeam.team} @ ${homeTeam.team} `;
+  //extracting scores infos from warriosGames to add them in our <li>s
+  const scoreLine = `${awayTeam.points}-${homeTeam.points}`;
+  gameLi.innerText = `${teamNames} ${scoreLine}`;
   ulParent.appendChild(gameLi);
 }
 
