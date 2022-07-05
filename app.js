@@ -1,85 +1,97 @@
-const warriorsGames = [{
+const warriorsGames = [
+  {
     awayTeam: {
-      team: 'Golden State',
+      team: "Golden State",
       points: 119,
-      isWinner: true
+      isWinner: true,
     },
     homeTeam: {
-      team: 'Houston',
+      team: "Houston",
       points: 106,
-      isWinner: false
-    }
+      isWinner: false,
+    },
   },
   {
     awayTeam: {
-      team: 'Golden State',
+      team: "Golden State",
       points: 105,
-      isWinner: false
+      isWinner: false,
     },
     homeTeam: {
-      team: 'Houston',
+      team: "Houston",
       points: 127,
-      isWinner: true
-    }
+      isWinner: true,
+    },
   },
   {
     homeTeam: {
-      team: 'Golden State',
+      team: "Golden State",
       points: 126,
-      isWinner: true
+      isWinner: true,
     },
     awayTeam: {
-      team: 'Houston',
+      team: "Houston",
       points: 85,
-      isWinner: false
-    }
+      isWinner: false,
+    },
   },
   {
     homeTeam: {
-      team: 'Golden State',
+      team: "Golden State",
       points: 92,
-      isWinner: false
+      isWinner: false,
     },
     awayTeam: {
-      team: 'Houston',
+      team: "Houston",
       points: 95,
-      isWinner: true
-    }
+      isWinner: true,
+    },
   },
   {
     awayTeam: {
-      team: 'Golden State',
+      team: "Golden State",
       points: 94,
-      isWinner: false
+      isWinner: false,
     },
     homeTeam: {
-      team: 'Houston',
+      team: "Houston",
       points: 98,
-      isWinner: true
-    }
+      isWinner: true,
+    },
   },
   {
     homeTeam: {
-      team: 'Golden State',
+      team: "Golden State",
       points: 115,
-      isWinner: true
+      isWinner: true,
     },
     awayTeam: {
-      team: 'Houston',
+      team: "Houston",
       points: 86,
-      isWinner: false
-    }
+      isWinner: false,
+    },
   },
   {
     awayTeam: {
-      team: 'Golden State',
+      team: "Golden State",
       points: 101,
-      isWinner: true
+      isWinner: true,
     },
     homeTeam: {
-      team: 'Houston',
+      team: "Houston",
       points: 92,
-      isWinner: false
-    }
-  }
-]
+      isWinner: false,
+    },
+  },
+];
+
+// creating an <ul> with <li>s related to the team games extracted from warriorsGames
+const ulParent = document.createElement("ul");
+for (let game of warriorsGames) {
+  const { homeTeam, awayTeam } = game;
+  const gameLi = document.createElement("li");
+  gameLi.innerText = `${awayTeam.team} @ ${homeTeam.team} `;
+  ulParent.appendChild(gameLi);
+}
+
+document.body.prepend(ulParent);
