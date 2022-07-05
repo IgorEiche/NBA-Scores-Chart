@@ -90,10 +90,18 @@ const ulParent = document.createElement("ul");
 for (let game of warriorsGames) {
   const { homeTeam, awayTeam } = game;
   const gameLi = document.createElement("li");
-  const teamNames = `${awayTeam.team} @ ${homeTeam.team} `;
+  const { team: hTeam, points: hPoints } = homeTeam;
+  const { team: aTeam, points: aPoints } = awayTeam;
+  const teamNames = `${aTeam.team} @ ${hTeam.team} `;
   //extracting scores infos from warriosGames to add them in our <li>s
-  const scoreLine = `${awayTeam.points}-${homeTeam.points}`;
-  gameLi.innerText = `${teamNames} ${scoreLine}`;
+
+  let scoreLine;
+  if (aPoints > hPoints) {
+    scoreLine = `<b>${aPoints}</b>-${hPoints}`;
+  } else {
+    scoreLine = `${aPoints}-<b>${hPoints}</b>`;
+  }
+  gameLi.innerHTML = `${teamNames} ${scoreLine}`;
   ulParent.appendChild(gameLi);
 }
 
